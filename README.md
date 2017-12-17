@@ -28,6 +28,13 @@ Prims (used in tests):
      - If given one integer, returns the integer
      - If given two or more integers, returns the product of the integers
      
+ - `/`
+   - Inputs: One or more integers that satisfy `number?`
+   
+   - Result:
+     - If given one integer, returns the quotient of 1 divided by the given integer
+     - If given two or more integers, returns the quotient of the integers
+     
  - `=`
    - Inputs: Two or more primitives that once evaluated are integers and satisfy `number?`
      
@@ -100,7 +107,22 @@ Prims (used in tests):
 
 ## Part 2: "run-time errors"
 
+> Running `racket tests.rkt <test-name>` will compile `header.ll` and `combined.ll` but will fail the test and not show the correct run-time output. The actual run-time output is gotten by running the compiled `bin` executable (i.e. `./bin`).
 
+> All tests are found in the `tests/public` directory.
+
+ - Function is provided too many arguments
+ 
+ - Function is provided too few arguments
+ 
+ - Division by zero
+ 
+   In header.cpp under `u64 prim__47(u64 a, u64 b)` after the two `ASSERT_TAG` statements, I added this `if` block:
+   ```
+   if (DECODE_INT(b) == 0)
+     fatal_err("Division by zero. Ensure that no denominator is zero.");
+   ```
+   The corresponding tests are `div-by-zero-fatal`, `div-by-zero-ok`, and `div-by-zero-zero`. `div-by-zero-fatal` tests an non-zero integer dividedd by zero. `div-by-zero-ok` tests zero divided by a non-zero integer. `div-by-zero-zero` tests zero divided by zero.
  
 
 _I, SaiArvind Ganganapalle, pledge on my honor that I have not given or received any unauthorized assistance on this assignment._
