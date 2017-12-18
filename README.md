@@ -111,9 +111,12 @@ Prims (used in tests):
 
 > All tests are found in the `tests/public` directory.
 
- - Function is provided too many arguments
+ - Primitive is provided too many arguments
  
- - Function is provided too few arguments
+ - Primitive is provided too few arguments
+ 
+ - Non-function value is applied
+   In top-level.rkt
  
  - Division by zero
  
