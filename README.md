@@ -115,6 +115,8 @@ Prims (used in tests):
 
  - Division by zero (located in `part2/div-by-zero` directory)
  
+ > Last part working correctly. Everything is implemented correctly until here. Running all the tests (included the provided final_tests) in this directory will work.
+ 
    In header.cpp under `u64 prim__47(u64 a, u64 b)` after the two `ASSERT_TAG` statements, I added this `if` block:
    ```
    if (DECODE_INT(b) == 0)
