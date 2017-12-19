@@ -79,7 +79,7 @@
              (apply ,x ,xd))]
          [`(apply ,(? symbol? x0) ,(? symbol? x1))
           `(apply ,x0 ,x1)]
-         ;[`(,aes ...) (wrap-aes aes (lambda (xs) xs))]
+         [`(,aes ...) (wrap-aes aes (lambda (xs) xs))]
          #;[`(,aes ...)
           ;(wrap-aes aes (lambda (xs) xs))
           (define genx (gensym 'x))
